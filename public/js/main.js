@@ -16,3 +16,11 @@ let resultString = JSON.stringify(newTest);
 console.log("String version of newTest: ", resultString); 
 
 */
+
+async function getRecords(data){
+    const fetchedData = await fetch('../data/data.json')
+    const result = await fetchedData.json();
+    console.log('Result: ', result);
+}
+
+getRecords();
