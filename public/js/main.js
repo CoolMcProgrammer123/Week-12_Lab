@@ -21,6 +21,21 @@ async function getRecords(data){
     const fetchedData = await fetch('../data/data.json')
     const result = await fetchedData.json();
     console.log('Result: ', result);
+
+    const navHolder = document.querySelector('#navLinks')
+    
+    result.mainnav.forEach(item => {
+        // console.log("Inside foreach: ", item);
+
+        // Create new list item
+        let listItem = document.createElement('li')
+
+        // Add link in the li
+        listItem.innerHTML = `<a href="${item.url}">${item.text}</a>`
+
+        // Append the new li to the menu variable
+        navHolder.appendChild(listItem);
+    });
 }
 
 getRecords();
